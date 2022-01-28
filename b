@@ -1,66 +1,62 @@
-import java.util.regex.Matcher;
-
-import java.util.regex.Pattern;
-
 import java.util.*;
 
-
-
-class Test
+public class NewClass
 
 {
-
-	public static boolean isValid(String email)
-
-	{
-
-		String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
-
-							"[a-zA-Z0-9_+&*-]+)*@" +
-
-							"(?:[a-zA-Z0-9-]+\\.)+[a-z" +
-
-							"A-Z]{2,7}$";
-
-							
-
-		Pattern pat = Pattern.compile(emailRegex);
-
-		if (email == null)
-
-			return false;
-
-		return pat.matcher(email).matches();
-
-	}
-
-
 
 	public static void main(String[] args)
 
 	{
 
-		ArrayList<String> address = new ArrayList<>();
+		int length = 10;
 
-			
+		System.out.println(geek_Password(length));
 
-		address.add("siri@elxsi.com");
+	}
 
-		address.add("tataelxsi.co.in");
 
-			
 
-		for(String i : address){
+	static char[] check_Password(int len)
 
-			if (isValid(i))
+	{
 
-				System.out.println(i + " - Yes");
+		System.out.println("Generating password using random() : ");
 
-			else
+		System.out.print("Your new password is : ");
 
-				System.out.println(i + " - No");
+		String Capital_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+		String Small_chars = "abcdefghijklmnopqrstuvwxyz";
+
+		String numbers = "0123456789";
+
+				String symbols = "!@#$%^&*_=+-/.?<>)";
+
+
+
+
+
+		String values = Capital_chars + Small_chars +
+
+						numbers + symbols;
+
+		Random rndm_method = new Random();
+
+		char[] password = new char[len];
+
+
+
+		for (int i = 0; i < len; i++)
+
+		{
+
+			password[i] =
+
+			values.charAt(rndm_method.nextInt(values.length()));
 
 		}
+
+		return password;
 
 	}
 
